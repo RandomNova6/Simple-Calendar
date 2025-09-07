@@ -64,7 +64,7 @@ export default{
     },
     methods:{
         createDay(week,day){
-            const index=week+day*7-7;
+            const index=(week-1)+day*7-7;
             if(index<this.firstDayOfMonth||index>this.firstDayOfMonth+this.dayInCurMonth-1) return 0;
             else return index-this.firstDayOfMonth+1;
         },
