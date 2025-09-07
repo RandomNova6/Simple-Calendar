@@ -1,24 +1,21 @@
 <template>
-    <div class="Sim-Header" @keydown.ctrl.left="goPrev" @keydown.ctrl.right="goNext" tabindex="0">
+    <div class="Sim-Header">
         <div class="header-left">
-            <slot></slot>
+            <slot name="header-left"></slot>
             </div>
         <div class="header-center">
-            <span class="pre-month" @click="goPrev" >{{ leftArrow }}</span>
+            <span class="pre-month" @click="$emit('goPrev')" >{{ leftArrow }}</span>
             <span class="title">{{ title }}</span>
-            <span class="next-month" @click="goNext" >{{ rightArrow }}</span>
+            <span class="next-month" @click="$emit('goNext')" >{{ rightArrow }}</span>
             </div>
         <div class="header-right">
-            <slot></slot>
+            <slot name="header-right"></slot>
             </div>
         </div>
 </template>
 
 <script>
 
-import moment from 'moment';
-
-let debug=true;
 export default{
     props:{
         currentMonth:{},
@@ -28,19 +25,6 @@ export default{
         return{
             leftArrow:'<',
             rightArrow:'>',
-        }
-    },
-    methods:{
-        goPrev(){
-           if(debug) console.log('goPrev')
-            var newMonth=moment(this.currentMonth).subtract(1,'months').startOf('month');
-            this.$emit('changeMonth',newMonth)
-           
-        },
-        goNext(){
-           if(debug) console.log('goNext')
-            var newMonth=moment(this.currentMonth).add(1,'months').startOf('month');
-            this.$emit('changeMonth',newMonth)
         }
     },
     computed:{
