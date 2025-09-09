@@ -9,7 +9,7 @@
   </template>
 </SimHeader>
 
-<SimBg :locale="locale" :currentMonth="currentMonth"></SimBg>
+<SimBg ref="bg" :locale="locale" :currentMonth="currentMonth"></SimBg>
 
   </div>
 </template>
@@ -53,6 +53,8 @@ export default {
         this.goPrev();
       }else if(event.ctrlKey&&event.key=='ArrowRight'){
         this.goNext();
+      }else if(event.key=="Tab"){
+        this.$refs.bg.handleTab();
       }
     }
   },

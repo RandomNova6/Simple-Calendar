@@ -40,6 +40,7 @@ export default{
 .Sim-Header{
     display: flex;
     align-items: center;
+    min-height:20pt;
 }
 .header-left{
     flex:1;
@@ -47,8 +48,9 @@ export default{
 }
 .header-center{
     flex:3;
-    background-color: lightblue;
+    background-color: rgb(220, 169, 2);
     text-align: center;
+    border-radius: 10pt 10pt 0 0;
 }
 .header-right{
     flex:1;
