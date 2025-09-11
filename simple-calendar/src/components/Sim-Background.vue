@@ -95,18 +95,6 @@ export default{
             if(this.selectedNum!==(week-1)+(day-1)*7)this.selectedNum=(week-1)+(day-1)*7;
             else this.selectedNum=-1;
         },
-        handleTab(){
-            if(moment().isSame(this.currentMonth,'month')){
-                const index=moment().date()+this.firstDayOfMonth-1;
-                const week=index%7+1;
-                const day=index/7+1;
-                this.activateTodo(week,day);
-            }
-            else{
-                const index=this.firstDayOfMonth+1;
-                this.activateTodo(index,1);
-            }
-        }
     }
 }
 </script>
@@ -179,11 +167,12 @@ export default{
     width: 100%;
 }
 .date{
-    position: relative;
-    left:-35%;
-    top: -20%;
+    position:absolute;
+    left:5%;
+    top: -22%;
 }
 .selected{
     border:3px dashed rgb(255, 179, 0);
+    box-sizing: border-box;
 }
 </style>

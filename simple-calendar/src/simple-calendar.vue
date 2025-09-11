@@ -53,8 +53,6 @@ export default {
         this.goPrev();
       }else if(event.ctrlKey&&event.key=='ArrowRight'){
         this.goNext();
-      }else if(event.key=="Tab"){
-        this.$refs.bg.handleTab();
       }
     }
   },
